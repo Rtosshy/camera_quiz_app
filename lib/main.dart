@@ -5,17 +5,20 @@ import 'dart:async';
 import './quiz.dart';
 import './result.dart';
 
-Future<void> main() async {
-  // Ensure that plugin services are initialized so that `availableCameras()`
-  // can be called before `runApp()`
-  WidgetsFlutterBinding.ensureInitialized();
+void main() => runApp(MyApp());
 
-  // Obtain a list of the available cameras on the device.
-  final cameras = await availableCameras();
+class Firstpage extends StatefulWidget {
+  const Firstpage({Key? key}) : super(key: key);
 
-  // Get a specific camera from the list of available cameras.
-  final firstCamera = cameras.first;
-  runApp(MyApp());
+  @override
+  _FirstpageState createState() => _FirstpageState();
+}
+
+class _FirstpageState extends State<Firstpage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
 }
 
 class MyApp extends StatefulWidget {
