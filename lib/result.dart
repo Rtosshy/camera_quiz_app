@@ -8,7 +8,6 @@ class Result extends StatelessWidget {
 
   Result(this.resultScore, this.resetHandler);
 
-//Remark Logic
   String get resultPhrase {
     String resultText;
     if (resultScore >= 50) {
@@ -38,39 +37,37 @@ class Result extends StatelessWidget {
             resultPhrase,
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
-          ), //Text
+          ),
           TextButton(
             child: Text(
               '最初に戻る',
-            ), //Text
+            ),
             onPressed: () {
               resetHandler();
             },
-          ), //FlatButton
+          ),
           if (resultScore >= 50)
             ElevatedButton(
                 onPressed: () async {
                   WidgetsFlutterBinding.ensureInitialized();
-
-                  // Obtain a list of the available cameras on the device.
                   final cameras = await availableCameras();
-
-                  // Get a specific camera from the list of available cameras.
                   final firstCamera = cameras.first;
 
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => TakePictureScreen(
-                              camera: firstCamera,
-                            )),
+                      builder: (context) => TakePictureScreen(
+                        camera: firstCamera,
+                      )
+                    ),
                   );
                 },
                 child: Text(
                   '記念撮影する',
-                ))
-        ], //<Widget>[]
-      ), //Column
-    ); //Center
+                )
+            )
+        ],
+      ),
+    );
   }
 }

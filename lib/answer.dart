@@ -15,7 +15,7 @@ class Answer extends StatelessWidget {
         onPressed: () {
           selectHandler();
         },
-      ), //RaisedButton
-    ); //Container
+      ),
+    );
   }
 }
